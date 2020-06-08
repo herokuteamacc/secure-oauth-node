@@ -1,0 +1,22 @@
+
+POST http://localhost:8000/api/register 
+Content-Type: application/json
+
+{
+   "firstName": "Usernew1",
+   "lastName" : "lastname",
+   "email": "adity4398@exmple.com",
+   "password": "asdjjgjl"
+}
+
+###
+
+POST http://localhost:8000/api/login
+Content-Type: application/json
+
+{  
+   "email": "adity4398@exmple.com",
+   "password":"asdjjgjl"
+}
+
+
