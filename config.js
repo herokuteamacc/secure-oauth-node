@@ -1,7 +1,7 @@
 module.exports = {
 	port: 8000,
 	dbConnectionString: {
-		"database_url": process.env.DATABASE_URL,
+		"database_url": "DATABASE_URL",
 		"dialect": "postgres",
 		"port": 5432,
 		"operatorsAliases": false,
