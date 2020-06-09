@@ -10,7 +10,7 @@ const db = {};
 
 let sequelize;
 
-
+/*
 sequelize = new Sequelize(
 				config.dbConnectionString.database,
 				config.dbConnectionString.username,
@@ -33,7 +33,9 @@ sequelize = new Sequelize(
 						}
 					}
 				}
-);
+);*/
+
+sequelize = new Sequelize(config.dbConnectionString.database_url);
 
 console.log("DB Connected");
 fs
