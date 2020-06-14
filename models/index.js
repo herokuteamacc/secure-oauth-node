@@ -35,7 +35,7 @@ sequelize = new Sequelize(
 				}
 );*/
 
-sequelize = new Sequelize(process.env[config.database_url]);
+sequelize = new Sequelize(process.env[config.dbConnectionString.database_url]);
 
 console.log("DB Connected");
 fs
