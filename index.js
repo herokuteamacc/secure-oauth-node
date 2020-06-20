@@ -1,3 +1,4 @@
+console.log('Start of the point');
 const path = require('path');
 const express = require('express'); 
 const app = express();
@@ -20,10 +21,12 @@ app.use(function(req, res, next) {
   });
 
 app.use('/', express.static(__dirname + '/'));
+console.log('Start of the point - End calling index.html');
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
+console.log('Called index.html');
 
 const PORT = process.env.PORT || config.port;
 app.listen(PORT, () => console.log('App listening on port '+ PORT));
