@@ -52,9 +52,7 @@ fs
   });
 
 Object.keys(db).forEach((modelName) => {
-	console.log(db[modelName]);
   if (db[modelName].associate) {
-	  console.log('in');
     db[modelName].associate(db);
   }
 });
