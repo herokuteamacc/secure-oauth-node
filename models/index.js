@@ -1,3 +1,4 @@
+console.log('Entered Models/ Index.js');
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -34,10 +35,10 @@ sequelize = new Sequelize(
 					}
 				}
 );*/
-
+console.log('Before Sequelize initialization');
 sequelize = new Sequelize(process.env[config.dbConnectionString.database_url]);
-
 console.log("DB Connected");
+
 fs
   .readdirSync(__dirname)
   .filter((file) =>
@@ -47,10 +48,14 @@ fs
   .forEach((file) => {
     const model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
+    console.log(model.name);
+    console.log(model);
   });
 
 Object.keys(db).forEach((modelName) => {
+	console.log(modelName);
   if (db[modelName].associate) {
+	  console.log('in');
     db[modelName].associate(db);
   }
 });
