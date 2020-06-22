@@ -1,10 +1,11 @@
 module.exports = {
 	port: 8000,
 	dbConnectionString: {
-		"username": "adkkvnxchgujol",
+		/*"username": "adkkvnxchgujol",
 		"password": "047dbad45f6056f340b96762852c5ff0c419238f50d70eb45acf0f348f28cfe3",
 		"database": "denffg3ohkuvb9",
-		"host": "ec2-34-225-82-212.compute-1.amazonaws.com",
+		"host": "ec2-34-225-82-212.compute-1.amazonaws.com",*/
+		"database_url": "DATABASE_URL",
 		"dialect": "postgres",
 		"port": 5432,
 		"operatorsAliases": false,
