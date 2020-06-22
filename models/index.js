@@ -12,11 +12,12 @@ let sequelize;
 
 
 sequelize = new Sequelize(
-				config.dbConnectionString.database,
+				/*config.dbConnectionString.database,
 				config.dbConnectionString.username,
-				config.dbConnectionString.password, 
-				{
-					host: config.dbConnectionString.host,
+				config.dbConnectionString.password,				
+					host: config.dbConnectionString.host,*/
+	                          ( process.env[config.dbConnectionString.database_url]),
+					{
 					dialect: 'postgres',
 					protocol: 'postgres', 
 					port: 5432,
@@ -35,7 +36,8 @@ sequelize = new Sequelize(
 				}
 );
 
-console.log("DB Connected");
+console.log("DB Connected at models-index");
+console.log("Connected to"+process.env[config.dbConnectionString.database_url]);
 fs
   .readdirSync(__dirname)
   .filter((file) =>
