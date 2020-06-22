@@ -23,6 +23,7 @@ app.use('/', express.static(__dirname + '/'));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/index.html'));
+	console.log('a request for *,redirecting to index.html:'+__dirname);//comment1
 });
 
 const PORT = process.env.PORT || config.port;
