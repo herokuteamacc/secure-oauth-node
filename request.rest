@@ -20,3 +20,14 @@ Content-Type: application/json
 }
 
 
+###
+
+
+GET http://localhost:8000/api/is-verify
+Content-Type: application/json
+
+{  
+   "email": "adity4398@exmple.com",
+   "password":"asdjjgjl"
+}
+
