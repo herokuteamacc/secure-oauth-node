@@ -82,8 +82,41 @@ const getUserById = id => Users.findOne({where: {Id:id}});
 //	console.log(email);
 //	return sequelize.query('SELECT u."Id",u."FirstName",u."LastName",u."Email",r."Name" FROM public."User" u FULL OUTER JOIN public."UserRole" ur on u."Id"=ur."User" FULL OUTER JOIN public."Role" r on ur."Role"=r."Id" Where u."Email"='+"'"+email+"'", { type: sequelize.QueryTypes.SELECT})
 //
+const getUserWithRoles = (email) => {
+	return new Promise((resolve, reject) => {
+		try{
+			console.log(email);
+			sequelize.query('SELECT u."Id",u."FirstName",u."LastName",u."Email",r."Name" FROM public."User" u FULL OUTER JOIN public."UserRole" ur on u."Id"=ur."User" FULL OUTER JOIN public."Role" r on ur."Role"=r."Id" Where u."Email"='+"'"+email+"'", { type: sequelize.QueryTypes.SELECT})
+			.then(rows =>{
+				if(Array.isArray(rows) && rows && rows.length){
+					let user = {};
+					let roles = [];
+					rows.forEach(jrows => {
+						user.Id = jrows.Id;
+						user.id = jrows.Id;
+						user.FirstName = jrows.FirstName;
+						user.LastName = jrows.LastName;
+						user.Email = jrows.Email;
+						roles.push(jrows.Name);
+					});
+					user.role = roles;
+					console.log(user);
+					resolve(user);
+				}else{
+					console.log("in else");
+					reject(null);
+				}
+			})
+		}catch(err){
+			console.log(err);
+			reject(err);
+		}
+	});
+}
+
 module.exports = {
     addUser,
     getUserByEmail,
-    getUserById 
+    getUserById, 
+    getUserWithRoles 
 }
