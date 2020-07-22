@@ -37,28 +37,15 @@ const Register = ({setAuth}) => {
 
   return (
     <Fragment>
-      <h1 className="text-center my-5">Register</h1>
+         <div class = "auth-form-body p-0">
+      <h1>Sign Up</h1>
       <form onSubmit = {onSubmitForm}>
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          className="form-control my-3"
-          value={email}
-          onChange={(e) => onChange(e)}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="password"
-          className="form-control my-3"
-          value={password}
-          onChange={(e) => onChange(e)}
-        />
-        <input
+      <div class="form-group w-25">
+            <div class="auth-form-body mt-8">
+            <input
           type="text"
           name="firstName"
-          placeholder="firstName"
+          placeholder="First Name"
           className="form-control my-3"
           value={firstName}
           onChange={(e) => onChange(e)}
@@ -66,13 +53,32 @@ const Register = ({setAuth}) => {
         <input
           type="text"
           name="lastName"
-          placeholder="lastName"
+          placeholder="Last Name"
           className="form-control my-3"
           value={lastName}
           onChange={(e) => onChange(e)}
         />
-        <button className="btn btn-success btn-block">Submit</button>
+        <input
+          type="email"
+          name="email"
+          placeholder="Username"
+          className="form-control my-3"
+          value={email}
+          onChange={(e) => onChange(e)}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          className="form-control my-3"
+          value={password}
+          onChange={(e) => onChange(e)}
+        />
+        <button className="btn btn-primary btn-block">Submit</button>
+        </div>
+        </div>
       </form>
+      </div>
     </Fragment>
   );
 };
