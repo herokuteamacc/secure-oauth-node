@@ -27,6 +27,17 @@ function App() {
       <Router>
         <div>
           <Switch>
+          <Route
+              exact
+              path="/"
+              render={(props) =>
+                !isAuthenticated ? (
+                  <Login {...props} setAuth = {setAuth}/>
+                ) : (
+                  <Redirect to="/dashboard" />
+                )
+              }
+            />
             <Route
               exact
               path="/login"
