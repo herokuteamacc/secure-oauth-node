@@ -1,0 +1,155 @@
+@import './fonts';
+@import './colors';
+
+.text-level-1 {
+    font-family: $font-primary;
+    font-size: 64px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.text-level-2 {
+    font-family: $font-primary;
+    font-size: 48px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.text-level-3 {
+    font-family: $font-primary;
+    font-size: 36px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+
+.text-level-4 {
+    font-family: $font-primary;
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+.text-level-5 {
+    font-family: $font-primary;
+    font-size: 28px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+.text-level-6 {
+    font-family: $font-primary;
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+.text-level-7 {
+    font-family: $font-primary;
+    font-size: 18px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $primary-text-color;
+}
+.text-level-8 {
+    font-family: $font-primary;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #646464;
+}
+.text-level-9 {
+    font-family: $font-primary;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+}
+.text {
+    font-family: $font-primary;
+    font-weight: $font-regular;
+    line-height: normal;
+}
+.text-bold {
+    font-family: $font-primary;
+    font-weight: $font-bold;
+    line-height: normal;
+}
+.text-level-10 {
+    font-size: $font-xl;
+    color: $primary-text-color;
+}
+.text-level-11 {
+    font-size: $font-lg;
+    color: $deloitteGreen;
+}
+.text-level-12 {
+    font-size: $font-md;
+    color: $primary-text-color;
+}
+.sub-heading {
+    @extend .text-bold;
+    font-size: $font-lg;
+    color: $primary-heading-color;
+}
+.text-small-1 {
+    @extend .text-bold;
+    // font-size: $font-xs;
+    font-size: $font-md;
+    color: $primary-text-color;
+}
+.text-small-2 {
+    @extend .text;
+    // font-size: $font-xs;
+    font-size: $font-sm;
+    color: $primary-text-color;
+}
+.text-small-3 {
+    @extend .text;
+    // font-size: $font-xs;
+    font-size: $font-xs;
+    color: $primary-text-color;
+}
+.text-small-4 {
+    @extend .text;
+    font-size: $font-xs;
+    color: $primary-text-color;
+}
+.text-small-5 {
+    @extend .text-bold;
+    font-size: $font-sm;
+    color: $primary-text-color;
+}
+
+.text-grey{
+    color: $gray;
+}
