@@ -1,0 +1,15 @@
+@import '../../assets/scss/typography';
+@import '../../assets/scss/buttons';
+
+.signin {
+    .MuiFormControlLabel-root {
+        .MuiTypography-body1 {
+            @extend .text-small-2;
+        }
+    }
+}
+
+.help-auth-text{
+    font-size: 14px;
+}
+

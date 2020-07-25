@@ -1,0 +1,106 @@
+@import './colors';
+@import './fonts';
+
+.btn-primary {
+    font-family: $font-primary;
+    border-radius: 5px;
+    background-color: $deloitteGreen;
+    color: $white;
+    padding: 8px 18px;
+    font-size: 12px;
+    min-width: 110px;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    &:hover, &:visited, &:focus, &:active {
+        background-color: $deloitteGreen;
+        color: $white;
+        text-decoration: none;
+        outline: none;
+        box-shadow: none;
+    }
+    &:not(:disabled):not(.disabled):active {
+        background-color: $deloitteGreen;
+        color: $white;
+        text-decoration: none;
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+.btn-secondary {
+    border-radius: 5px;
+    color: $white;
+    padding: 8px 18px;
+    background-color: $red;
+    font-size: 12px;
+    min-width: 110px;
+    text-decoration: none;
+    border: none;
+    &:hover, &:visited, &:focus, &:active {
+        background-color: $red;
+        color: $white;
+        text-decoration: none;
+        outline: none;
+        box-shadow: none;
+    }
+    &:not(:disabled):not(.disabled):active {
+        background-color: $red;
+        color: $white;
+        text-decoration: none;
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.btn-outline{
+    border-radius: 5px;
+    border: solid 1px $blue;
+    color: $blue;
+    background: $white;
+    padding: 8px 18px;
+    font-size: 12px;
+    min-width: 110px;
+    text-decoration: none;
+    &:hover, &:visited {
+        color: $blue;
+        text-decoration: none;
+    }
+}
+
+a {
+    font-family: $font-primary;
+    font-size: $font-md;
+    font-weight: $font-regular;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $blue-7;
+    text-decoration: none;
+    &:hover, &:visited {
+        color: $blue-7;
+        text-decoration: none;
+    }
+}
+
+a:visited {
+    color: $blue-7;
+}
+
+button.MuiButtonBase-root.MuiButton-root {
+    @extend .btn-primary;
+    font-weight: 600;
+    &.MuiButton-containedSecondary {
+        @extend .btn-secondary;
+    }
+}
+
+.MuiTextField-root:focus {
+    border-color: red;
+}
