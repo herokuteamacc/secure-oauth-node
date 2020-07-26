@@ -3,6 +3,7 @@ const config =  require('../config');
 const bcrypt = require('bcrypt');
 const authService = require('../services/auth');
 const userService = require('../services/user');
+const { registerValidation, loginValidation } = require('../validation'); //require validation files for register and login
 const roleService = require('../services/userrole');
 const verifyToken = require('./verifyToken');
 const jwt = require('jsonwebtoken');
@@ -12,12 +13,16 @@ const publicKEY = require('fs').readFileSync(path.resolve(__dirname, '../', 'con
 
 
 function login (req, res){
+	const {error} = loginValidation(req.body); //basic login validation
+	if(error) return res.status(400).send(error.details[0].message);
 	return authService.authenticate(req.body)
 	.then(token => {
 		res.send({
 			success: true,
 			data: { token }
-		});		
+		});
+
+		
 	})
 	.catch(err => {
 		if (err.type === 'custom'){
@@ -41,6 +46,8 @@ function register (req, res){
 		email,
 		password,
 	 } = req.body;
+	const {error} = registerValidation(req.body); //pass error through registration validation
+	if(error) return res.status(400).send(error.details[0].message); 
 	var login = req.body.login;
 	return userService.getUserByEmail(req.body.email || '')
 	.then(exists => {
