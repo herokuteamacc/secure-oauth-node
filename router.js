@@ -21,7 +21,6 @@ module.exports.set = (app) => {
 	console.log('After api user , Before login and register');
     app.post('/api/login', authController.login);
     app.post('/api/register', authController.register);
-    //app.get('/api/posts', postController.post);
     app.get('/api/is-verify', checkauth, async (req, res) => {
         try {
             res.json(true);
@@ -31,5 +30,4 @@ module.exports.set = (app) => {
             
         }
     });
-    //app.post('/api/validate',authToken.validateAuthToken);
 }

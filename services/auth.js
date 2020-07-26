@@ -26,8 +26,6 @@ var signOptions = {
 const authenticate = (params) => {
   //Creating a new promise
   return new Promise((resolve, reject) => {
-    if (error)  res.send(error.details[0].message);
-
     Users.findOne({
       where: {
         Email: params.email,
@@ -35,13 +33,13 @@ const authenticate = (params) => {
       raw: true,
     })
       .then((user) => {
-
-
         if (!user) {
           throw new CustomError("Authentication failed. User not found.");
         }
         if (!bcrypt.compareSync(params.password || "", user.Password))
           throw new CustomError("Authentication failed. Wrong password.");
+
+
 
         const payload = {
           email: user.Email,
