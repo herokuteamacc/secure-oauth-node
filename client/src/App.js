@@ -14,6 +14,7 @@ import {
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
+import SignIn from "./components/SignIn/SignIn";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -57,7 +58,7 @@ function App() {
                 !isAuthenticated ? (
                   <Register {...props} setAuth={setAuth} />
                 ) : (
-                  <Redirect to="/login" />
+                  <Redirect to="/register" />
                 )
               }
             />

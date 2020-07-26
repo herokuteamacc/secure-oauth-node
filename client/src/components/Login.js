@@ -11,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 
 import HerokuLogo from "../assets/images/HerokuImage.png";
 
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -51,22 +52,37 @@ const Login = ({ setAuth }) => {
     e.preventDefault();
 
     try {
-      const body = { email, password };
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+      const values = { email, password };
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values)
+    };
+    fetch('/api/login', requestOptions)
+    .then(response => response.json())
+    .then(data => {
 
-      const parseRes = await response.json();
-      const status = parseRes.success;
+      const status = data.success;
+      console.log(status);
+
       if (status == true) {
-        const respToken = parseRes.accessToken.token;
-        console.log(JSON.stringify(respToken));
+        const respToken = data.data.token;
 
         localStorage.setItem("token", respToken);
+        localStorage.setItem("message", data.status)
+        localStorage.setItem("state", 'Login Succesful')
         setAuth(true);
-      } else setAuth(false);
+      } else {
+        setAuth(false);
+        localStorage.setItem("token", '');
+        localStorage.setItem("message", data.message)
+        localStorage.setItem("state", '')
+        console.log(data.message);
+      }
+
+    })
+
+      
     } catch (err) {
       console.error(err.message);
     }
@@ -91,6 +107,7 @@ const Login = ({ setAuth }) => {
               placeholder="Email"
               className="form-control my-3"
               value={email}
+              errorMessage="Email is required"
               onChange={(e) => onChange(e)}
             />
             <input

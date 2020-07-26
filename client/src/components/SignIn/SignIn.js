@@ -15,7 +15,7 @@ import { useFormik } from 'formik';
 import { useHistory } from "react-router";
 import Loader from '../Loader/Loader';
 import { connect } from 'react-redux'
-//import login from '../../actions/login';
+import login from '../../actions/login';
 import PropTypes from 'prop-types';
 import './SignIn.scss';
 import HerokuLogo from '../../assets/images/HerokuImage.png';
@@ -49,13 +49,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function SignIn({loading, error }) {
+function SignIn({ dispatch, loading, error }) {
     const classes = useStyles();
     let history = useHistory();
-//    function handleSignIn(values) {
-  //      dispatch(login(values, history));
-    //    console.log(values);
-   //}
+    function handleSignIn(values) {
+        dispatch(login(values, history));
+        console.log(values);
+   }
 
     const validate = values => {
         const errors = {};
@@ -74,7 +74,7 @@ function SignIn({loading, error }) {
         if(!loading){
             localStorage.removeItem('usertoken');
             localStorage.removeItem('state');
-           // dispatch({ type: 'LOGOUT_USER', response: null });
+            dispatch({ type: 'LOGOUT_USER', response: null });
         }
     }, [loading]); 
     
@@ -84,10 +84,10 @@ function SignIn({loading, error }) {
             email: '',
             password: '',
         },
-        validate
-        //,onSubmit: values => {
-          //  handleSignIn(values);
-        //}
+        validate,
+        onSubmit: values => {
+            handleSignIn(values);
+        }
     });
     return (
         <Container component="main" maxWidth="xs" className="signin">
@@ -164,16 +164,16 @@ function SignIn({loading, error }) {
     );
 }
 
-//SignIn.propTypes = {
-  //  loading: PropTypes.bool.isRequired
-//}
+SignIn.propTypes = {
+    loading: PropTypes.bool.isRequired
+}
 
-//function mapStateToProps(state) {
-  //  return {
-    //    loading: state.loading,
-      //  error: state.login.loginerror
-    //}
-//}
+function mapStateToProps(state) {
+    return {
+        loading: state.loading,
+      error: state.login.loginerror
+    }
+}
 
-//export default connect(mapStateToProps)(SignIn)
-export default SignIn
+export default connect(mapStateToProps)(SignIn)
+//export default SignIn

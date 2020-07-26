@@ -6,7 +6,7 @@ const login = (values, history) => {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify("values")
+            body: JSON.stringify(values)
         };
         fetch('/api/login', requestOptions)
             .then(response => response.json())
@@ -18,17 +18,17 @@ const login = (values, history) => {
                         localStorage.setItem('usertoken', data.data.token);
                         const token = jwtDecode(data.data.token);
                         
-                        if(token.role){
-                            console.log((token));
-                            if(token.role.indexOf('admin')>-1){
-                                dispatch({ type: 'LOGIN_SUCCESS', response: {token:data.data.token,role:'admin' }});
-                            }
-                            else if(token.role.indexOf('licensed')>-1){
-                                dispatch({ type: 'LOGIN_SUCCESS', response: {token:data.data.token,role:'licensed' }});
-                            }else{
-                                dispatch({ type: 'LOGIN_SUCCESS', response: {token:data.data.token,role:'standard' }});
-                            }
-                        }
+                     //   if(token.role){
+                          console.log((token));
+                         //   if(token.role.indexOf('admin')>-1){
+                       //         dispatch({ type: 'LOGIN_SUCCESS', response: {token:data.data.token,role:'admin' }});
+                         //   }
+                           // else if(token.role.indexOf('licensed')>-1){
+                             //   dispatch({ type: 'LOGIN_SUCCESS', response: {token:data.data.token,role:'licensed' }});
+                            //}else{
+                              //  dispatch({ type: 'LOGIN_SUCCESS', response: {token:data.data.token,role:'standard' }});
+                           // }
+                       // }
                         
                         history.push('/dashboard');
                     }
