@@ -13,8 +13,7 @@ import {
 //Simple Page components
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Dashboard from "./components/Dashboard";
-import SignIn from "./components/SignIn/SignIn";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
