@@ -1,5 +1,4 @@
 const config =  require('../config');
-//const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const authService = require('../services/auth');
 const userService = require('../services/user');
@@ -9,7 +8,6 @@ const verifyToken = require('./verifyToken');
 const jwt = require('jsonwebtoken');
 const fs   = require('fs');
 const path   = require('path');
-const publicKEY = require('fs').readFileSync(path.resolve(__dirname, '../', 'config', 'certs', 'publickey.pem'), 'utf8');
 const awsconnect = require("./awsconnect");
 
 function login (req, res){
