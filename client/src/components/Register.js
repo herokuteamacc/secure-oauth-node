@@ -68,7 +68,7 @@ const Register = ({ setAuth }) => {
         setAuth(true);
       } else {
         setAuth(false);
-        alert("An error occurred");
+        alert(parseRes.message);
       }
     } catch (err) {
       console.error(err.message);
