@@ -13,6 +13,7 @@
     "@hapi/joi": "17.1.1",
     "@uirouter/angularjs": "1.0.26",
     "angular": "1.7.9",
+    "aws-sdk": "2.734.0",
     "bcrypt": "4.0.1",
     "bcryptjs": "2.4.3",
     "body-parser": "1.19.0",
