@@ -9,7 +9,6 @@ import Box from "@material-ui/core/Box";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 
-
 import HerokuLogo from "../assets/images/HerokuImage.png";
 
 function Copyright() {
@@ -61,15 +60,16 @@ const Register = ({ setAuth }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      
 
       const parseRes = await response.json();
       console.log(parseRes);
-      if(parseRes){
-      localStorage.setItem("token", parseRes.token);
-      alert("New User Registered");
-      setAuth(true);
-      }else {setAuth(false)}
+      if (parseRes.sucess == true) {
+        alert("New User Registered");
+        setAuth(true);
+      } else {
+        setAuth(false);
+        alert("An error occurred");
+      }
     } catch (err) {
       console.error(err.message);
     }
