@@ -67,7 +67,7 @@ const Register = ({ setAuth }) => {
       console.log(parseRes);
       if(parseRes){
       localStorage.setItem("token", parseRes.token);
-
+      alert("New User Registered");
       setAuth(true);
       }else {setAuth(false)}
     } catch (err) {
