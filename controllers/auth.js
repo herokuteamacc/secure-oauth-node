@@ -10,19 +10,20 @@ const jwt = require('jsonwebtoken');
 const fs   = require('fs');
 const path   = require('path');
 const publicKEY = require('fs').readFileSync(path.resolve(__dirname, '../', 'config', 'certs', 'publickey.pem'), 'utf8');
-
+const awsconnect = require("./awsconnect");
 
 function login (req, res){
 	const {error} = loginValidation(req.body); //basic login validation
 	if(error) return res.status(400).send(error.details[0].message);
-	return authService.authenticate(req.body)
+
+   awsconnect.getPrivateKey()
+  .then(str => {
+ 	return authService.authenticate(req.body, str)
 	.then(token => {
 		res.send({
 			success: true,
 			data: { token }
-		});
-
-		
+		});	
 	})
 	.catch(err => {
 		if (err.type === 'custom'){
@@ -36,7 +37,11 @@ function login (req, res){
 			message: 'Authentication failed. Unexpected Error.'
 		});
 	})
-};
+})
+.catch((err) => {
+  console.log(err);
+  reject(err);
+})};
 
 function register (req, res){
 

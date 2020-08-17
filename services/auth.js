@@ -6,10 +6,13 @@ const jwt = require("jsonwebtoken");
 const fs = require("fs");
 const path = require("path");
 //var privateKEY  = fs.readFileSync('./private.key', 'utf8');
-const privateKEY = require("fs").readFileSync(
-  path.resolve(__dirname, "../", "config", "certs", "privatekey.pem"),
-  "utf8"
-);
+//const privateKEY = require("fs").readFileSync(
+  //path.resolve(__dirname, "../", "config", "certs", "privatekey.pem"),
+  //"utf8"
+//);
+const awsconnect = require("../controllers/awsconnect");
+
+
 
 var i = "Mysoft corp"; // Issuer
 var s = "some@user.com"; // Subject
@@ -23,7 +26,7 @@ var signOptions = {
   algorithm: "RS256",
 };
 
-const authenticate = (params) => {
+const authenticate = (params, privateKEY) => {
   //Creating a new promise
   return new Promise((resolve, reject) => {
     Users.findOne({
@@ -38,16 +41,13 @@ const authenticate = (params) => {
         }
         if (!bcrypt.compareSync(params.password || "", user.Password))
           throw new CustomError("Authentication failed. Wrong password.");
-
-
-
+          
         const payload = {
           email: user.Email,
           id: user.Id,
           name: user.FirstName + " " + user.LastName,
           time: new Date(),
         };
-
         const token = jwt.sign(payload, privateKEY, signOptions);
         resolve(token);
       })
@@ -59,5 +59,5 @@ const authenticate = (params) => {
 };
 
 module.exports = {
-  authenticate,
+  authenticate
 };
