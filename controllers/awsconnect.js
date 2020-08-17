@@ -6,8 +6,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; //this is being used for demo, s
 
 return new Promise((resolve, reject) =>{
 AWS.config.update({
-    accessKeyId: "AKIAQL377ZCZHCUQLFVJ",//move it to Heroku config vars and use process.env.AWS_BUCKET_KEY
-    secretAccessKey: "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"//move it to Heroku config vars and use process.env.AWS_BUCKET_SECRET
+    accessKeyId: process.env.AWS_BUCKET_KEY, //"AKIAQL377ZCZHCUQLFVJ",//move it to Heroku config vars and use 
+    secretAccessKey: process.env.AWS_BUCKET_SECRET //"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"//move it to Heroku config vars and use 
   });
 
 var s3 = new AWS.S3();

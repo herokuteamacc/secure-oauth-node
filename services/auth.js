@@ -5,11 +5,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
 const path = require("path");
-//var privateKEY  = fs.readFileSync('./private.key', 'utf8');
-//const privateKEY = require("fs").readFileSync(
-  //path.resolve(__dirname, "../", "config", "certs", "privatekey.pem"),
-  //"utf8"
-//);
 const awsconnect = require("../controllers/awsconnect");
 
 
@@ -22,8 +17,8 @@ var signOptions = {
   //issuer:  i,
   //subject:  s,
   // audience:  a,
-  expiresIn: "2h",
-  algorithm: "RS256",
+  expiresIn: process.env.EXPIRES_IN,
+  algorithm: process.env.ALGORITHM,
 };
 
 const authenticate = (params, privateKEY) => {
@@ -41,7 +36,7 @@ const authenticate = (params, privateKEY) => {
         }
         if (!bcrypt.compareSync(params.password || "", user.Password))
           throw new CustomError("Authentication failed. Wrong password.");
-          
+
         const payload = {
           email: user.Email,
           id: user.Id,
