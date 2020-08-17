@@ -68,7 +68,7 @@ function App() {
                 isAuthenticated ? (
                   <Dashboard {...props} setAuth={setAuth} />
                 ) : (
-                  <Redirect to="/login" />
+                  <Redirect to="/dashboard" />
                 )
               }
             />
