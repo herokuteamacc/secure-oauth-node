@@ -17,8 +17,5 @@ module.exports = {
 			}
 	},
 	saltRounds: 2,
-	jwtSecret: 'MEgCQQC0FVPOr5FywqEVpWjKk+q0/57iw+JZcGVmhPLqivBXFA/BymcrHrKslGdxtJ6p7z87buYAjmVtc4hwJeuqqNBRAgMBAAE=',
-	tokenExpireTime: '15s',
-	tokenExpireTimeForAuth: 900,
 }
 //don't store this file in repository, it's unsecure
