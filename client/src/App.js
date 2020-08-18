@@ -54,7 +54,7 @@ function App() {
               exact
               path="/register"
               render={(props) =>
-                isAuthenticated ? (
+                !isAuthenticated ? (
                   <Register {...props} setAuth={setAuth} />
                 ) : (
                   <Redirect to="/login"/>
