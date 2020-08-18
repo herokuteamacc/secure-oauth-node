@@ -9,9 +9,9 @@ const awsconnect = require("../controllers/awsconnect");
 
 // SIGNING OPTIONS - Open ID standard
 var signOptions = {
-  issuer:  process.env.iss,  // Claims - Issuer, Subject, Audience
-  subject:  process.env.sub,
-  audience:  process.env.aud,
+  issuer:  process.env.ISS, //Claims - issuer, Subject, Audience
+  subject:  process.env.SUB,
+  audience:  process.env.AUD,
   expiresIn: process.env.EXPIRES_IN,
   algorithm: process.env.ALGORITHM,
 };
@@ -49,5 +49,5 @@ const authenticate = (params, privateKEY) => {
 };
 
 module.exports = {
-  authenticate
+  authenticate,
 };
