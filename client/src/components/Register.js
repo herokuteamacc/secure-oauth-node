@@ -63,7 +63,7 @@ const Register = ({ setAuth }) => {
 
       const parseRes = await response.json();
       console.log(parseRes);
-      if (parseRes.sucess == true) {
+      if (parseRes.success == true) {
         alert("New User Registered");
         setAuth(true);
       } else {
