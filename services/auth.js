@@ -7,16 +7,11 @@ const fs = require("fs");
 const path = require("path");
 const awsconnect = require("../controllers/awsconnect");
 
-
-
-var i = "Mysoft corp"; // Issuer
-var s = "some@user.com"; // Subject
-var a = "http://mysoftcorp.in"; // Audience
-// SIGNING OPTIONS
+// SIGNING OPTIONS - Open ID standard
 var signOptions = {
-  //issuer:  i,
-  //subject:  s,
-  // audience:  a,
+  issuer:  process.env.iss,  // Claims - Issuer, Subject, Audience
+  subject:  process.env.sub,
+  audience:  process.env.aud,
   expiresIn: process.env.EXPIRES_IN,
   algorithm: process.env.ALGORITHM,
 };

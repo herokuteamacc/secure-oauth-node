@@ -6,6 +6,9 @@ const publicKEY = fs.readFileSync(path.resolve(__dirname, '../', 'config', 'cert
 function tokenVerifyUsingPublicKey(token){
 
 var verifyOptions = {
+    issuer:  process.env.iss,
+    subject:  process.env.sub,
+    audience:  process.env.aud,
     expiresIn:  process.env.EXPIRES_IN,
     algorithm:  process.env.ALGORITHM
    };
