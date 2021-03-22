@@ -8,12 +8,13 @@ import {
   Switch,
   Route,
   Link,
+  Redirect
 } from "react-router-dom";
 
 //Simple Page components
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Dashboard from "./components/Dashboard/Dashboard";
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -63,11 +64,11 @@ function App() {
             />
             <Route
               exact
-              path="/dashboard"
+              path="https://lwc-lwc-recipes-oss.herokuapp.com/"
               render={(props) =>
                 isAuthenticated ? (
-                  <Dashboard {...props} setAuth={setAuth} />
-                ) : (
+                  <Link to={{ pathname: "https://lwc-lwc-recipes-oss.herokuapp.com/" }} {...props} setAuth={setAuth}target="_blank" />
+                      ) : (
                   <Redirect to="/login" />
                 )
               }
