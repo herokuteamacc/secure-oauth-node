@@ -9,7 +9,7 @@ const getDashboard = (token) => {
             })
         };
 
-        fetch('/api/dashboard', requestOptions)
+        fetch('https://lwc-lwc-recipes-oss.herokuapp.com/', requestOptions)
             .then(response => response.json())
             .then(data => {
                 dispatch({ type: 'LOADING', response: false });

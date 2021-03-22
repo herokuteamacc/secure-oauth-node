@@ -17,7 +17,7 @@ const login = (values, history) => {
                         dispatch({ type: 'LOADING', response: false });
                         localStorage.setItem('usertoken', data.data.token);
                         const token = jwtDecode(data.data.token);
-                        
+
                      //   if(token.role){
                           console.log((token));
                          //   if(token.role.indexOf('admin')>-1){
@@ -29,8 +29,8 @@ const login = (values, history) => {
                               //  dispatch({ type: 'LOGIN_SUCCESS', response: {token:data.data.token,role:'standard' }});
                            // }
                        // }
-                        
-                        history.push('/dashboard');
+
+                        history.location.pathname = "https://lwc-lwc-recipes-oss.herokuapp.com/";
                     }
                 } else {
                     let error = data.message;
