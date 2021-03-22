@@ -20,7 +20,7 @@
         "watch:production": "lwc-services watch --mode=production"
     },
     "author": "Aditya Krishna",
-    "license": "ISC && CC0-1.0 ",
+    "license": "CC0-1.0",
     "dependencies": {
         "@hapi/joi": "17.1.1",
         "@uirouter/angularjs": "1.0.26",
