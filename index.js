@@ -1,9 +1,15 @@
 console.log('Start of the point');
-
 const path = require('path');
-const express = require('express'); 
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+
+
+const express = require('express');
 const app = express();
-const dotenv = require('dotenv');
+//const dotenv = require('dotenv');
 const router = require('./router');
 const bodyParser = require('body-parser');
 const config = require('./config');
