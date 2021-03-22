@@ -1274,7 +1274,7 @@
   "version" "1.17.5"
 
 "@lwc/jest-preset@github:muenzpraeger/lwc-jest-preset-ts-fix":
-  "resolved" "git+ssh://git@github.com/muenzpraeger/lwc-jest-preset-ts-fix.git#5f2a28563055cbf674dc97f3b184bab0d4c849e2"
+  "resolved" ""
   "version" "1.1.0-alpha1"
   dependencies:
     "@lwc/jest-resolver" "1.1.0-alpha1"
@@ -1288,9 +1288,9 @@
   "resolved" "https://registry.npmjs.org/@lwc/jest-resolver/-/jest-resolver-1.1.0-alpha1.tgz"
   "version" "1.1.0-alpha1"
 
-"@lwc/jest-resolver@github:muenzpraeger/lwc-jest-resolver-resolution-fix":
-  "resolved" "git+ssh://git@github.com/muenzpraeger/lwc-jest-resolver-resolution-fix.git#772221f6dce07cddacb73cde21685fd16cad51db"
-  "version" "2.2.0"
+"@lwc/jest-resolver@:muenzpraeger/lwc-jest-resolver-resolution-fix":
+  "resolved" ""
+  "version" "2.2.0"github
 
 "@lwc/jest-serializer@1.1.0-alpha1":
   "integrity" "sha512-kP3f/9YtdVNqtfMPe0txDp2xUbEe6pSFoBJXbd1u1tEMJYY/lFzG8OfS+DCQMFoMaOkGIWtV5+K1Vd66u3sHew=="
@@ -1300,7 +1300,7 @@
     "pretty-format" "~24.8.0"
 
 "@lwc/jest-transformer@1.1.0-alpha1", "@lwc/jest-transformer@github:muenzpraeger/lwc-jest-transformer-ts-fix":
-  "resolved" "git+ssh://git@github.com/muenzpraeger/lwc-jest-transformer-ts-fix.git#a222f1f0f971a2b844fe2124321a2fabb3cc0520"
+  "resolved" ""
   "version" "1.1.0-alpha1"
   dependencies:
     "@babel/core" "7.1.0"
@@ -9145,10 +9145,10 @@
     "@babel/plugin-syntax-decorators" "^7.2.0"
     "@babel/preset-typescript" "^7.3.3"
     "@lwc/eslint-plugin-lwc" "^0.8"
-    "@lwc/jest-preset" "github:muenzpraeger/lwc-jest-preset-ts-fix"
-    "@lwc/jest-resolver" "github:muenzpraeger/lwc-jest-resolver-resolution-fix"
+    "@lwc/jest-preset" ""
+    "@lwc/jest-resolver" ""
     "@lwc/jest-serializer" "1.1.0-alpha1"
-    "@lwc/jest-transformer" "github:muenzpraeger/lwc-jest-transformer-ts-fix"
+    "@lwc/jest-transformer" ""
     "@lwc/rollup-plugin" "^1.1.1"
     "@oclif/command" "^1"
     "@oclif/config" "^1"
