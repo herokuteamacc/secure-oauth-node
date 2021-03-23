@@ -7,8 +7,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  Redirect
+ Redirect
 } from "react-router-dom";
 
 //Simple Page components
@@ -36,7 +35,7 @@ function App() {
                 !isAuthenticated ? (
                   <Login {...props} setAuth={setAuth} />
                 ) : (
-                  <Link to={{ pathname: "https://lwc-lwc-recipes-oss.herokuapp.com/" }} target="_blank" />
+                  window.location.href = 'https://lwc-lwc-recipes-oss.herokuapp.com/'
                 )
               }
             />
@@ -47,7 +46,7 @@ function App() {
                 !isAuthenticated ? (
                   <Login {...props} setAuth={setAuth} />
                 ) : (
-                  <Link to={{ pathname: "https://lwc-lwc-recipes-oss.herokuapp.com/" }} target="_blank" />
+                  window.location.href = 'https://lwc-lwc-recipes-oss.herokuapp.com/'
                 )
               }
             />
@@ -64,10 +63,10 @@ function App() {
             />
             <Route
               exact
-              path="https://lwc-lwc-recipes-oss.herokuapp.com/"
+              path='https://lwc-lwc-recipes-oss.herokuapp.com/'
               render={(props) =>
                 isAuthenticated ? (
-                  <Link to={{ pathname: "https://lwc-lwc-recipes-oss.herokuapp.com/" }} {...props} setAuth={setAuth}target="_blank" />
+                  window.location.href = 'https://lwc-lwc-recipes-oss.herokuapp.com/'
                       ) : (
                   <Redirect to="/login" />
                 )

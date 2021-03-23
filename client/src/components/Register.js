@@ -63,7 +63,7 @@ const Register = ({ setAuth }) => {
 
       const parseRes = await response.json();
       console.log(parseRes);
-      if (parseRes.success == true) {
+      if (parseRes.success === true) {
         alert("New User Registered");
         setAuth(true);
       } else {
@@ -82,7 +82,7 @@ const Register = ({ setAuth }) => {
       <Container component="main" maxWidth="xs">
         <Grid container justify="center">
           <div className={classes.paper}>
-            <img src={HerokuLogo} height="120" />
+            <img src={HerokuLogo} height="120" alt="The Heroku Logo" />
           </div>
         </Grid>
         <div className={classes.paper}>
@@ -118,6 +118,7 @@ const Register = ({ setAuth }) => {
               placeholder="Password"
               className="form-control my-3"
               value={password}
+              errorMessage="Password must be min 6 characters"
               onChange={(e) => onChange(e)}
             />
             <Button

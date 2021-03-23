@@ -65,7 +65,7 @@ const Login = ({ setAuth }) => {
       const status = data.success;
       console.log(status);
 
-      if (status == true) {
+      if (status ===true) {
         const respToken = data.data.token;
 
         localStorage.setItem("token", respToken);
@@ -82,7 +82,7 @@ const Login = ({ setAuth }) => {
 
     })
 
-      
+
     } catch (err) {
       console.error(err.message);
     }
@@ -95,7 +95,7 @@ const Login = ({ setAuth }) => {
       <Container component="main" maxWidth="xs" className="signin">
         <Grid container justify="center">
           <div className={classes.paper}>
-            <img src={HerokuLogo} height="120" />
+            <img src={HerokuLogo} height="120" alt="The Heroku Logo" />
           </div>
         </Grid>
         <div className={classes.paper}>
@@ -116,6 +116,7 @@ const Login = ({ setAuth }) => {
               placeholder="Password"
               className="form-control my-3"
               value={password}
+              errorMessage="Password must min 6 charcters"
               onChange={(e) => onChange(e)}
             />
 
