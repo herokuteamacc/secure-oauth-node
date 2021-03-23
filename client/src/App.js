@@ -35,7 +35,7 @@ function App() {
                 !isAuthenticated ? (
                   <Login {...props} setAuth={setAuth} />
                 ) : (
-                  window.location.href = 'https://lwc-lwc-recipes-oss.herokuapp.com/'
+                  window.location.assign = 'https://lwc-lwc-recipes-oss.herokuapp.com/'
                 )
               }
             />
@@ -46,7 +46,7 @@ function App() {
                 !isAuthenticated ? (
                   <Login {...props} setAuth={setAuth} />
                 ) : (
-                  window.location.href = 'https://lwc-lwc-recipes-oss.herokuapp.com/'
+                  window.location.assign = 'https://lwc-lwc-recipes-oss.herokuapp.com/'
                 )
               }
             />
@@ -66,7 +66,7 @@ function App() {
               path='https://lwc-lwc-recipes-oss.herokuapp.com/'
               render={(props) =>
                 isAuthenticated ? (
-                  window.location.href = 'https://lwc-lwc-recipes-oss.herokuapp.com/'
+                  window.location.assign = 'https://lwc-lwc-recipes-oss.herokuapp.com/'
                       ) : (
                   <Redirect to="/login" />
                 )
